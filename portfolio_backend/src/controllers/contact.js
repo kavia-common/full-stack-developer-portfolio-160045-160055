@@ -1,4 +1,5 @@
 const portfolio = require('../services/portfolio');
+const emailService = require('../services/email');
 
 // Simple email pattern for basic validation
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,10 +21,11 @@ function getContactDetails(req, res, next) {
 // PUBLIC_INTERFACE
 /**
  * POST /api/contact
- * Accepts contact form submissions and stores them in-memory (ephemeral).
+ * Accepts contact form submissions, stores them in-memory (ephemeral),
+ * and sends an email notification to the portfolio owner using Nodemailer.
  * Body: { name: string, email: string, message: string, subject?: string, phone?: string }
  */
-function postContactMessage(req, res, next) {
+async function postContactMessage(req, res, next) {
   try {
     const { name, email, message, subject, phone } = req.body || {};
     if (!name || typeof name !== 'string' || name.trim().length < 2) {
@@ -54,7 +56,16 @@ function postContactMessage(req, res, next) {
       userAgent: req.get('user-agent') || '',
     };
 
+    // Store message (ephemeral)
     const result = portfolio.submitContactMessage(payload);
+
+    // Send email (best-effort). If email fails, log error and return 201 to avoid leaking details.
+    try {
+      await emailService.sendContactEmail(payload, result);
+    } catch (emailErr) {
+      console.error('Failed to send contact email:', emailErr && emailErr.message ? emailErr.message : emailErr);
+    }
+
     return res.status(201).json({
       status: 'ok',
       message: 'Your message has been received.',
