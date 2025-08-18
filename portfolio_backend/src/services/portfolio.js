@@ -14,8 +14,9 @@ class PortfolioService {
    * @returns {object} About object with personal summary and objective
    */
   static getAbout() {
+    // Ensure the About data includes the real name to be consumed by the frontend
     return {
-      name: 'Full Stack Developer',
+      name: 'Sneha CC',
       title: 'Full Stack Developer (2+ years)',
       summary:
         'Full Stack Developer with 2 years of experience specializing in React.js, Redux, Node.js, Express.js, Java, Sails.js, MongoDB, and MySQL. Passionate about building scalable web applications and delightful user experiences.',
