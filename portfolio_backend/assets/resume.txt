@@ -1,0 +1,32 @@
+Full Stack Developer (2+ years)
+================================
+
+Summary:
+- Full Stack Developer with experience in React.js, Redux, Node.js, Express.js, Java, Sails.js, MongoDB, and MySQL.
+- Passionate about building scalable applications and excellent user experiences.
+
+Skills:
+- Languages: JavaScript (ES6+), Java, SQL
+- Frontend: React.js, Redux, HTML5, CSS3, Sass, Responsive Design
+- Backend: Node.js, Express.js, Sails.js, REST APIs, JWT/Auth
+- Databases: MongoDB, MySQL
+- Tools & Testing: Git, Docker, Postman, Jest, ESLint
+
+Experience:
+- Acme Corp — Full Stack Developer (2023 - Present)
+  • React/Redux SPA for customer onboarding
+  • Node.js/Express REST APIs
+  • MongoDB indexing & query optimization
+
+- Tech Solutions — Backend Developer Intern (2022 - 2023)
+  • Node.js/Express services, MySQL procedures
+  • Integration tests & linting improvements
+
+Projects:
+- Project Atlas — Project management tool (React, Redux, Node, Express, MongoDB)
+- E-Commerce Platform — Scalable shop (React, Node, Express, MySQL)
+- Team Chat App — Lightweight chat (React, Node, Express)
+
+Contact:
+- Email: developer@example.com
+- Phone: +1-555-0100
